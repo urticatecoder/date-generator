@@ -1,5 +1,4 @@
 let left = [];
-let checked = [];
 let count = 0;
 for (let i = 1; i <= 365; i++) {
   left.push(i);
@@ -32,9 +31,15 @@ function guess() {
   let guessDate = convert(guessDay);
 
   left.splice(guess, 1);
-  checked.push(guessDay);
   displayGuess(guessDate, false);
   displayChecked(guessDate);
+  count++;
+  displayCount();
+}
+
+function displayCount() {
+  let countOutput = document.getElementById("count");
+  countOutput.innerHTML = "Number of dates you've generated so far: " + count;
 }
 
 function displayGuess(date, isDone) {
